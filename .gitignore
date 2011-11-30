@@ -2,4 +2,5 @@ android/bin/idme.apk
 android/bin/classes
 android/bin/resources.ap_
 android/bin/classes.dex
-
+ios/idme.xcodeproj/project.xcworkspace/xcuserdata/
+ios/idme.xcodeproj/xcuserdata/
