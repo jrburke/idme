@@ -14,18 +14,20 @@ public class IdmeActivity extends DroidGap {
         // Check intent to see if invoked as a response
         // to a specific intent request.
         Intent intent = getIntent();
-        String frag = "";
+        String query = "";
         Uri uri = intent.getData();
 
         // Convert the intent data into a fragment ID
         // passed as part of the index.html URL.
         if (uri != null) {
-	        String query = uri.getEncodedQuery();
-	        if (query != null) {
-                frag = query;
+	        query = uri.getEncodedQuery();
+	        if (query == null) {
+                query = "";
+	        } else {
+	            query = "?" + query;
 	        }
         }
 
-        super.loadUrl("file:///android_asset/www/index.html#" + frag);
+        super.loadUrl("file:///android_asset/www/index.html" + query);
     }
 }
