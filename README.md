@@ -156,5 +156,10 @@ instead of calling /verify.
 The assertion generation takes a while, to the point where it looks like it is
 not working. Probably best to have some sort of status/"thinking..." message.
 
+We probably want to send a cachebust/querystring to the /sign_in URL when the app
+calls it, to make sure the page reloads to get the new appScheme. Either that
+or have the page poll for fragment ID changes, but this has to be be aware of
+the clearing of the fragment ID the code does today.
+
 For the BrowserID server code, make sure the certassertion.js makes sense,
 and does not need to be narrowed more for app:// URLs.
