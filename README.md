@@ -1,7 +1,8 @@
 # idme
 
 An example of using [BrowserID](https://browserid.org) with mobile/device apps
-built with [Phonegap](http://www.phonegap.com/).
+built with [Phonegap](http://www.phonegap.com/). There is a
+[short video demo of it running in iOS](http://vimeo.com/32890370).
 
 These examples require [a branch of browserid](https://github.com/jrburke/browserid/tree/appscheme)
 that has some changes to support app <--> browser jumping via app protocol/scheme
