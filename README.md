@@ -4,18 +4,18 @@ An example of using [BrowserID](https://browserid.org) with mobile/device apps
 built with [Phonegap](http://www.phonegap.com/). There is a
 [short video demo of it running in iOS](http://vimeo.com/32890370).
 
-These examples require [a branch of browserid](https://github.com/jrburke/browserid/tree/appscheme)
+These examples require [a branch of browserid](https://github.com/jrburke/browserid/tree/appscheme2)
 that has some changes to support app <--> browser jumping via app protocol/scheme
 URLs.
 
-[Here is a comparison of the changes with browserid master](https://github.com/jrburke/browserid/compare/mozilla:dev...jrburke:appscheme?w=1).
+[Here is a comparison of the changes with browserid master](https://github.com/jrburke/browserid/compare/mozilla:dev...jrburke:appscheme2).
 
 This repo contains an Android and iOS project that is based on a basic Phonegap
 app, but adds in some extra hooks to navigate out to http://browserid.org to
 get a user's verified email address.
 
 This code is using `http://10.0.1.21:10002` instead of `https://browserid.org`
-because I was running the appscheme branch of the browserid code on that local
+because I was running the appscheme2 branch of the browserid code on that local
 IP address, so in the places where `http://10.0.1.21:10002` is referenced,
 use `https://browserid.org` if this kind of app protocol support lands in
 browserid.
@@ -33,10 +33,10 @@ this example. The main work is done by index.js
 **[index.js](https://github.com/jrburke/idme/blob/master/android/assets/www/index.js)**
 
 It listens for clicks on the sign in button and asks the device to go BrowserID,
-passing an appScheme to BrowserID:
+passing a `scheme` to BrowserID:
 
 ```url
-    http://10.0.1.21:10002/sign_in#appScheme=idme
+    http://10.0.1.21:10002/sign_in#scheme=idme
 ```
 
 That goes to the modified browserid server. It does not use a postMessage frame
@@ -158,7 +158,7 @@ The assertion generation takes a while, to the point where it looks like it is
 not working. Probably best to have some sort of status/"thinking..." message.
 
 We probably want to send a cachebust/querystring to the /sign_in URL when the app
-calls it, to make sure the page reloads to get the new appScheme. Either that
+calls it, to make sure the page reloads to get the new scheme arg. Either that
 or have the page poll for fragment ID changes, but this has to be be aware of
 the clearing of the fragment ID the code does today.
 

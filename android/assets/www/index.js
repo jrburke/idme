@@ -82,8 +82,8 @@
       evt.preventDefault();
 
       // Ask for an URL, this triggers the browser on the device.
-      // Go to BrowserID, passing appScheme.
-      location.href = browserIdHost + '/sign_in#appScheme=' + encodeURIComponent(scheme);
+      // Go to BrowserID, passing scheme.
+      location.href = browserIdHost + '/sign_in#scheme=' + encodeURIComponent(scheme);
     }, false);
   }, false);
 
